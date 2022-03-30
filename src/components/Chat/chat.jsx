@@ -21,7 +21,7 @@ const Chat = () => {
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
     const [usersInRoom, setUsersInRoom] = useState([]);
-    const ENDPOINT = 'localhost:3002'
+    const ENDPOINT = 'https://piper-chat-server.herokuapp.com/'
     const url = window.location.search;
 
     useEffect(() => {
