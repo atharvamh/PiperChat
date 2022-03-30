@@ -52,7 +52,7 @@ const Chat = () => {
             socket.disconnect();
             socket.off();
         }
-    },[ENDPOINT, url])
+    },[ENDPOINT, url, navigate])
 
     useEffect(() => {
         socket.on('message', (message) => {

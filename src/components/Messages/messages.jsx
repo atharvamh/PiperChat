@@ -25,6 +25,11 @@ const Message = ({message : {user, text, time}, name}) => {
         isSentByCurrentUser = true;
     }
 
+    const isValidURL = (string) => {
+        let res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_.~#?&//=]*)/g);
+        return res;
+    }
+
     return(
         isSentByCurrentUser ? 
         (
@@ -37,7 +42,26 @@ const Message = ({message : {user, text, time}, name}) => {
                 </p>
                 <div className="message-box bg-success px-2">
                     <p className="message-text text-white">
-                        {ReactEmoji.emojify(text)}
+                        {
+                            isValidURL(text) ? 
+                            <span>
+                            {text.replace(isValidURL(text)[0], '')}
+                                <a 
+                                    href={`${isValidURL(text) ? 
+                                        isValidURL(text)[0].includes('http') ? 
+                                        isValidURL(text)[0] : 'https://' + isValidURL(text)[0]
+                                        : null
+                                    }`}
+                                    rel="noreferrer"
+                                    target={"_blank"}
+                                    className='text-link'
+                                >
+                                    {isValidURL(text)[0]}
+                                </a>
+                            </span>
+                             : 
+                            ReactEmoji.emojify(text)
+                        }
                     </p>
                 </div>
             </div>
