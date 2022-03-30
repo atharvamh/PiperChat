@@ -1,15 +1,19 @@
+.outer-container
+    padding: 1em
+    
 .chat-inner-container
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px
     border-radius: 0.5em
     border: 1px solid #e1e1e1
     background: #fff
-    min-width: 36em
+    // min-width: 36em
     min-height: 32em
     position: relative
+    padding: 0.2em
 
 .users-container
     background: #fff
-    min-width: 16em
+    // min-width: 16em
     min-height: 24em
     position: relative
     border: 1px solid #e1e1e1
@@ -33,3 +37,12 @@
 
 .usr-cont
     height: 18em
+
+@media screen and (max-width: 500px)
+    .outer-container
+        margin-bottom: 1em
+    .users-container
+        min-height: 12em
+    .chat-inner-container
+        min-height: 28em
+        padding: 0.2em

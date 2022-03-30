@@ -82,13 +82,13 @@ const Chat = () => {
     return (
         <div className='container'>
             <ToastContainer />
-            <div className='outer-container d-flex gap-2 justify-content-center align-items-center vh-100'>
-                <div className='chat-inner-container'>
+            <div className='outer-container row d-flex gap-2 justify-content-center align-items-center vh-100'>
+                <div className='chat-inner-container col-md-6 col-sm-12 col-xs-12'>
                     <InfoBar room={room}/>
                     <Messages messages={messages} name={name}/>
                     <Input message={message} sendMessage={sendMessage} setMessage={setMessage}></Input>
                 </div>
-                <div className='users-container'>
+                <div className='users-container col-md-4 col-xs-12 col-xs-12'>
                     <div className='infobar-ol d-flex justify-content-between align-items-center'>
                         <div className='d-flex justify-content-start align-items-center gap-2'>
                             <div className="title-ol">
